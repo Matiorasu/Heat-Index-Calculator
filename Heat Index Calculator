@@ -1,0 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package heatindexcalculatortester;
+
+/**
+ * 1/29/2020
+ * @author Seth Medders
+ */
+public class HeatIndexCalculator {
+    private int temperature;
+    private double humidity;
+    private double heatIndex;
+    
+    public HeatIndexCalculator (int currentTemp, double currentHumidity)
+    {
+        //create the necessary fields for the equation
+        this.temperature = currentTemp;
+        this.humidity = currentHumidity;
+        this.heatIndex = calculateHeatIndex(currentTemp,currentHumidity);
+        //store our parameters in turn-- call the function with collected parameters
+    }
+    private double calculateHeatIndex(int currentTemp, double currentHumidity)
+    {
+        //time for an incredibly long expression!
+        //calculate the heat index!
+        double calculatedHeatIndex = (-42.378)+(2.04901523*currentTemp)+(10.14333127*currentHumidity)+(-0.22475541*currentTemp*currentHumidity)+(-.00683783*currentTemp*currentTemp)+(-.05481717*currentHumidity*currentHumidity)+(.00122874*currentTemp*currentTemp*currentHumidity)+(.00085282*currentTemp*currentHumidity*currentHumidity)+(-.00000199*currentTemp*currentTemp*currentHumidity*currentHumidity);
+        printHeatIndex(currentTemp, currentHumidity, calculatedHeatIndex);
+        return calculatedHeatIndex;
+        //Return the total
+    }
+    private void printHeatIndex(int currentTemp, double currentHumidity, double calculatedHeatIndex)
+    {
+        System.out.printf("At a temperature of %dF and a humidity of %5.2f percent... \n", currentTemp, currentHumidity);
+        System.out.printf("It actually feels like: %5.2fF", calculatedHeatIndex);
+        //The fruits of our labor-- output totals!
+    }
+}
